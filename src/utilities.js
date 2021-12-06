@@ -18,6 +18,10 @@ const ACCEL_NUMBER_AXIS = 3;
 let utilitiesModule = {
 
   /**
+   * @typedef {Number} batteryLevel
+   */
+
+  /**
    * @typedef {Object} ProcessedBuffer
    * @property {Buffer|SafeBuffer|Buffer2} buffer The remaining buffer. Can be null.
    * @property {Array} rawDataPackets The extracted raw data packets
@@ -1336,6 +1340,15 @@ function parsePacketStandardAccel (o) {
   else sampleObject.channelDataCounts = getChannelDataArrayNoScale(o);
 
   sampleObject.auxData = Buffer.from(o.rawDataPacket.slice(k.OBCIPacketPositionStartAux, k.OBCIPacketPositionStopAux + 1));
+
+  let batteryLevel = o.rawDataPacket[28];
+  if(this.batteryLevel === undefined) {
+    this.batteryLevel = null;
+  }
+  if(batteryLevel > 0) {
+    this.batteryLevel = batteryLevel;
+  }
+  sampleObject.batteryLevel = this.batteryLevel;
 
   // Get the sample number
   sampleObject.sampleNumber = o.rawDataPacket[k.OBCIPacketPositionSampleNumber];
