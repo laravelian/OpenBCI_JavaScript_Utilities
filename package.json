@@ -13,7 +13,8 @@
     "test-cov": "istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec && codecov"
   },
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "keywords": [
     "openbci",
@@ -59,12 +60,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/openbci/openbci_nodejs_utilities.git"
+    "url": "git+https://github.com/laravelian/openbci_nodejs_utilities.git"
   },
   "bugs": {
-    "url": "https://github.com/openbci/openbci_nodejs_utilities/issues"
+    "url": "https://github.com/laravelian/openbci_nodejs_utilities/issues"
   },
-  "homepage": "https://github.com/openbci/openbci_nodejs_utilities#readme",
+  "homepage": "https://github.com/laravelian/openbci_nodejs_utilities#readme",
   "engines": {
     "node": ">=6"
   },
